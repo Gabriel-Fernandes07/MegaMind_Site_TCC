@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/homeStyle.css">
+</head>
+<body class="home">
+    <header>
+        <nav class="header">
+            <div class="header-copy">
+                <p class="header-badge">Painel MegaMind</p>
+                <h1>Bem-vindo(a), MegaMinder</h1>
+                <p class="header-subtitulo">Seu menu principal para estudar com mais clareza e ir direto ao que importa.</p>
+            </div>
+
+            <div class="header-search">
+                <label class="search-box" for="Pesquisa">
+                    <input class="pesquisa" type="text" name="Pesquisa" id="Pesquisa" placeholder="Busque pela sabedoria...">
+                    <button class="lupaPesquisa" type="button" aria-label="Pesquisar">
+                        <img src="img/lupaPesquisa.png" alt="" height="28">
+                    </button>
+                </label>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="menu">
+        <button class="botaoMenu" onclick="aparecersidebar()">Menu</button>
+    </nav>
+
+    <main>
+        <aside id="sidebar">
+            <img src="img/MegaMind.png" alt="MegaMindLogo" class="MegaMindLogo">
+
+            <ul>
+                <li><a href="index.html" class="menu">Menu</a></li>
+                <li><a href="conteudoMatematica.html" class="menu">Conteudo Matematica</a></li>
+                <li><a href="conteudoPortugues.html" class="menu">Conteudo Portugues</a></li>
+                <li><a href="questoesMatematica.html" class="menu">Questoes Matematica</a></li>
+                <li><a href="gerenciarQuestoes.html" class="menu">Gerenciar Questoes</a></li>
+                <li><a href="questoesPortugues.html" class="menu">Questoes Portugues</a></li>
+                <li><a href="" class="menu">Redacao</a></li>
+                <li><a href="" class="menu">Ranking de Uso</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="" class="menu">Conta</a></li>
+                <li><a href="" class="menu">Configuracoes</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="" class="menu">Fale Conosco</a></li>
+                <li><a href="" class="menu">Log Out</a></li>
+            </ul>
+        </aside>
+
+        <section class="hero-dashboard">
+            <div class="hero-card">
+                <p class="hero-kicker">Organize seu estudo</p>
+                <h2>Escolha um caminho e continue de onde parou</h2>
+                <p class="hero-texto">
+                    Acesse rapidamente conteúdos, questões e áreas mais usadas do site.
+                </p>
+
+                <div class="hero-acoes">
+                    <a href="conteudoMatematica.html" class="hero-botao destaque">Ver conteudos</a>
+                    <a href="questoesMatematica.html" class="hero-botao">Resolver questoes</a>
+                </div>
+            </div>
+
+            <div class="hero-painel">
+                <div class="mini-box">
+                    <span class="mini-label">Materia em foco</span>
+                    <strong>Matematica</strong>
+                    <p>Revise conteudos e pratique exercicios.</p>
+                </div>
+                <div class="mini-box">
+                    <span class="mini-label">Meta rapida</span>
+                    <strong>1 bloco por vez</strong>
+                    <p>Comece pelo tema com mais dificuldade hoje.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="atalhos-section">
+            <div class="secao-topo">
+                <p class="secao-chip">Acesso rapido</p>
+                <h2>Entre direto no que voce quer estudar</h2>
+            </div>
+
+            <div class="atalhos-grid">
+                <a class="atalho-card" href="conteudoMatematica.html">
+                    <span class="atalho-icone">01</span>
+                    <h3>Conteudos de Matematica</h3>
+                    <p>Cards de estudo com modal de leitura e organizacao mais limpa.</p>
+                </a>
+
+                <a class="atalho-card" href="conteudoPortugues.html">
+                    <span class="atalho-icone">02</span>
+                    <h3>Conteudos de Portugues</h3>
+                    <p>Revise temas de leitura, gramatica, pontuacao e redacao.</p>
+                </a>
+
+                <a class="atalho-card" href="questoesMatematica.html">
+                    <span class="atalho-icone">03</span>
+                    <h3>Questoes de Matematica</h3>
+                    <p>Abra os assuntos e avance para a parte pratica com exercicios.</p>
+                </a>
+
+                <a class="atalho-card" href="questoesPortugues.html">
+                    <span class="atalho-icone">04</span>
+                    <h3>Questoes de Portugues</h3>
+                    <p>Treine interpretacao e gramatica em uma area dedicada.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="painel-extra">
+            <article class="painel-card">
+                <p class="secao-chip">Sugestao</p>
+                <h3>Comece por conteudo e depois va para as questoes</h3>
+                <p>Esse fluxo costuma deixar o estudo mais leve: primeiro revisar, depois praticar e por fim repetir os temas em que voce tiver mais erro.</p>
+            </article>
+
+            <article class="painel-card">
+                <p class="secao-chip">Rotina</p>
+                <h3>Monte uma sequencia simples</h3>
+                <ul class="rotina-lista">
+                    <li>1 tema de Matematica</li>
+                    <li>1 tema de Portugues</li>
+                    <li>1 bloco de questoes</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="js/scriptSidebar.js"></script>
+</body>
+</html>

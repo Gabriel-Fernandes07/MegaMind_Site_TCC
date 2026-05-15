@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="box1">
+
+        <img src="img/fundo.png" class="bg">
+
+    </div>
+
+    <div class="box2">
+
+            <a class="voltar" href="index.html">
+
+                <button type="submit" class="btnVoltar">
+                    <img class="imgVoltar" src="img/voltar.png" alt="">
+                </button>
+
+            </a>
+
+                <div class="box">
+
+                <h1 class="txtLogin">Cadastro</h1>
+
+            <form class="form" action="/php/login.php" method="POST">
+
+                <label class="txtl">Nome</label>
+                <input type="text" name="name" class="txtbox" required>
+
+                <label class="txtl">E-mail</label>
+                <input type="email" name="email" class="txtbox" required>
+
+            <label class="txtl">Senha</label>
+
+            <div class="input-container">
+        
+                <input type="password" name="senha" id="senha" class="txtbox" required>
+
+                <button type="button" class="btnEye" onclick="toggleSenha()">
+                    <img id="IconeSenha" src="../img/invisivel.png" class="Eye" alt="">
+                </button>
+
+            </div>
+
+            <button type="submit" class="btnlogin">
+                <span class="txtbtnLogin">Cadastre-se</span>
+            </button>
+
+            <div class="cadastro">
+                <span>Já tem conta?</span>
+                <a class="cadlink" href="index.html">Logar</a>
+            </div>
+
+        </form>
+
+    </div>
