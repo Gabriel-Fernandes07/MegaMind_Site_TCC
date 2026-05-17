@@ -134,6 +134,7 @@ window.recuperarSenha = async function () {
 await sendPasswordResetEmail(auth, email, actionCodeSettings);
 
     alert("Se o email existir, o link de recuperação foi enviado.");
+    window.location.href = "index.html";
 
   } catch (error) {
 
