@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Dashboard - MegaMind</title>
+    <link rel="stylesheet" href="css/homeStyle.css">
+    <link rel="stylesheet" href="css/admStyle.css">
+</head>
+<body class="inicio">
+    <main class="pagina-painel">
+        <div class="estrutura-painel">
+            <!-- Menu lateral principal -->
+            <aside class="barra-lateral-painel" aria-label="Menu lateral administrativo">
+                <nav class="navegacao-lateral">
+                    <div class="admin-header">
+                        <h2>Painel Admin</h2>
+                    </div>
+                    
+                    <a class="link-lateral" href="adm-home.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 11.2 12 5l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Dashboard
+                    </a>
+                    
+                    <a class="link-lateral" href="adm-cadastrar.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Cadastrar Adms
+                    </a>
+                    
+                    <a class="link-lateral" href="adm-gerenciar-fale.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Gerenciar Fale Conosco
+                    </a>
+                    
+                    <a class="link-lateral ativo" href="adm-gerenciar-dashboard.html" aria-current="page">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 13h2v8H3zm4-8h2v16H7zm4-2h2v18h-2zm4 4h2v14h-2zm4-2h2v16h-2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Gerenciar Dashboard
+                    </a>
+                </nav>
+
+                <a class="btn-logout" href="index.html">
+                    <span class="icone-logout">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/>
+                        </svg>
+                    </span>
+                    Sair
+                </a>
+            </aside>
+
+            <!-- Conteúdo principal da página -->
+            <section class="conteudo-painel">
+
+                <section class="titulo-secao">
+                    <h1>Gerenciar Dashboard</h1>
+                    <p>Controle e monitore o conteúdo do sistema</p>
+                </section>
+
+                <div class="tabs-container">
+                    <div class="tabs-header" role="tablist">
+                        <button class="tab-button ativo" type="button" data-target="aba-usuarios" aria-selected="true">
+                            👥 Usuários
+                        </button>
+                        <button class="tab-button" type="button" data-target="aba-conteudo" aria-selected="false">
+                            📚 Conteúdo
+                        </button>
+                        <button class="tab-button" type="button" data-target="aba-estatisticas" aria-selected="false">
+                            📊 Estatísticas
+                        </button>
+                        <button class="tab-button" type="button" data-target="aba-sistema" aria-selected="false">
+                            ⚙️ Sistema
+                        </button>
+                    </div>
+
+                    <!-- Aba Usuários -->
+                    <div id="aba-usuarios" class="tab-content ativo">
+                        <h2>Gerenciar Usuários</h2>
+                        <div class="filtros-section">
+                            <input 
+                                type="text" 
+                                class="input-filtro" 
+                                placeholder="Buscar usuário..."
+                            >
+                            <select class="input-filtro">
+                                <option value="">Todos</option>
+                                <option value="ativo">Ativos</option>
+                                <option value="inativo">Inativos</option>
+                                <option value="suspenso">Suspensos</option>
+                            </select>
+                        </div>
+                        <div class="tabela-container">
+                            <table class="tabela-dados">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>E-mail</th>
+                                        <th>Status</th>
+                                        <th>Data Cadastro</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corpo-usuarios">
+                                    <tr class="sem-dados">
+                                        <td colspan="5">Carregando usuários...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Aba Conteúdo -->
+                    <div id="aba-conteudo" class="tab-content">
+                        <h2>Gerenciar Conteúdo</h2>
+                        <div class="filtros-section">
+                            <select class="input-filtro">
+                                <option value="">Todos os tipos</option>
+                                <option value="redacao">Redação</option>
+                                <option value="matematica">Matemática</option>
+                                <option value="portugues">Português</option>
+                            </select>
+                            <select class="input-filtro">
+                                <option value="">Todos os status</option>
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                                <option value="revisao">Revisão</option>
+                            </select>
+                        </div>
+                        <div class="tabela-container">
+                            <table class="tabela-dados">
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Tipo</th>
+                                        <th>Status</th>
+                                        <th>Criado em</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corpo-conteudo">
+                                    <tr class="sem-dados">
+                                        <td colspan="5">Nenhum conteúdo cadastrado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Aba Estatísticas -->
+                    <div id="aba-estatisticas" class="tab-content">
+                        <h2>Estatísticas do Sistema</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h3>Total de Usuários</h3>
+                                <p class="stat-numero" id="stat-total-usuarios">0</p>
+                                <p class="stat-label">Usuários cadastrados</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Usuários Ativos (30 dias)</h3>
+                                <p class="stat-numero" id="stat-usuarios-ativos">0</p>
+                                <p class="stat-label">Últimos 30 dias</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Total de Questões</h3>
+                                <p class="stat-numero" id="stat-total-questoes">0</p>
+                                <p class="stat-label">Questões no sistema</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Taxa de Conclusão</h3>
+                                <p class="stat-numero" id="stat-taxa-conclusao">0%</p>
+                                <p class="stat-label">Média geral</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aba Sistema -->
+                    <div id="aba-sistema" class="tab-content">
+                        <h2>Configurações do Sistema</h2>
+                        <div class="sistema-container">
+                            <div class="config-grupo">
+                                <h3>Backup e Restauração</h3>
+                                <p>Faça backup do banco de dados do sistema</p>
+                                <button class="btn-primario" type="button">💾 Fazer Backup</button>
+                            </div>
+                            <div class="config-grupo">
+                                <h3>Limpeza de Dados</h3>
+                                <p>Limpe dados antigos e temporários</p>
+                                <button class="btn-neutro" type="button">🗑 Limpar Dados</button>
+                            </div>
+                            <div class="config-grupo">
+                                <h3>Logs do Sistema</h3>
+                                <p>Visualize os logs de atividade</p>
+                                <button class="btn-neutro" type="button">📜 Ver Logs</button>
+                            </div>
+                            <div class="config-grupo">
+                                <h3>Enviar Notificação Global</h3>
+                                <textarea 
+                                    id="notificacao-global" 
+                                    class="textarea-form" 
+                                    placeholder="Escreva uma mensagem para todos os usuários..."
+                                    rows="4"
+                                ></textarea>
+                                <button class="btn-primario" type="button">📢 Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+    <script src="js/admin.js" defer></script>
+</body>
+</html>

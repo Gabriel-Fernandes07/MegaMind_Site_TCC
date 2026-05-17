@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Fale Conosco - MegaMind</title>
+    <link rel="stylesheet" href="css/homeStyle.css">
+    <link rel="stylesheet" href="css/admStyle.css">
+</head>
+<body class="inicio">
+    <main class="pagina-painel">
+        <div class="estrutura-painel">
+            <!-- Menu lateral principal -->
+            <aside class="barra-lateral-painel" aria-label="Menu lateral administrativo">
+                <nav class="navegacao-lateral">
+                    <div class="admin-header">
+                        <h2>Painel Admin</h2>
+                    </div>
+                    
+                    <a class="link-lateral" href="adm-home.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 11.2 12 5l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Dashboard
+                    </a>
+                    
+                    <a class="link-lateral" href="adm-cadastrar.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Cadastrar Adms
+                    </a>
+                    
+                    <a class="link-lateral ativo" href="adm-gerenciar-fale.html" aria-current="page">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Gerenciar Fale Conosco
+                    </a>
+                    
+                    <a class="link-lateral" href="adm-gerenciar-dashboard.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 13h2v8H3zm4-8h2v16H7zm4-2h2v18h-2zm4 4h2v14h-2zm4-2h2v16h-2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Gerenciar Dashboard
+                    </a>
+                </nav>
+
+                <a class="btn-logout" href="index.html">
+                    <span class="icone-logout">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/>
+                        </svg>
+                    </span>
+                    Sair
+                </a>
+            </aside>
+
+            <!-- Conteúdo principal da página -->
+            <section class="conteudo-painel">
+
+                <section class="titulo-secao">
+                    <h1>Gerenciar Fale Conosco</h1>
+                    <p>Visualize e responda aos contatos recebidos</p>
+                </section>
+
+                <!-- Filtros -->
+                <div class="filtros-section">
+                    <input 
+                        type="text" 
+                        id="filtro-busca" 
+                        class="input-filtro" 
+                        placeholder="Buscar por nome ou assunto..."
+                    >
+                    <select id="filtro-status" class="input-filtro">
+                        <option value="">Todos os status</option>
+                        <option value="novo">Novo</option>
+                        <option value="respondido">Respondido</option>
+                        <option value="arquivado">Arquivado</option>
+                    </select>
+                </div>
+
+                <!-- Tabela de mensagens -->
+                <div class="tabela-container">
+                    <table class="tabela-mensagens">
+                        <thead>
+                            <tr>
+                                <th>Remetente</th>
+                                <th>E-mail</th>
+                                <th>Assunto</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-tabela-mensagens">
+                            <tr class="sem-dados">
+                                <td colspan="6">Nenhuma mensagem encontrada</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal de visualização de mensagem -->
+                <div id="modal-mensagem" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="modal-assunto">Assunto da Mensagem</h2>
+                        <div class="modal-info">
+                            <p><strong>Remetente:</strong> <span id="modal-remetente"></span></p>
+                            <p><strong>E-mail:</strong> <span id="modal-email"></span></p>
+                            <p><strong>Data:</strong> <span id="modal-data"></span></p>
+                        </div>
+                        <div class="modal-corpo">
+                            <p id="modal-corpo-mensagem"></p>
+                        </div>
+                        <div class="modal-respostas">
+                            <h3>Respostas</h3>
+                            <div id="lista-respostas"></div>
+                            <textarea 
+                                id="textarea-resposta" 
+                                class="textarea-form" 
+                                placeholder="Digite sua resposta aqui..."
+                                rows="4"
+                            ></textarea>
+                            <button class="btn-primario">Enviar Resposta</button>
+                        </div>
+                        <div class="modal-acoes">
+                            <button class="btn-sucesso">✓ Marcar como Respondido</button>
+                            <button class="btn-neutro">📋 Arquivar</button>
+                            <button class="btn-danger">🗑 Deletar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
