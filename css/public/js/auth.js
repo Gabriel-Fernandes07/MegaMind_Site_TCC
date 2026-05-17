@@ -115,38 +115,40 @@ window.login = function () {
     });
 };
 
-window.recuperarSenha = function () {
+window.recuperarSenha = async function () {
 
   const email = document.getElementById("email").value.trim();
 
   if (!email) {
-
     alert("Digite o email");
-
     return;
   }
 
-  sendPasswordResetEmail(auth, email)
+  try {
 
-    .then(() => alert("Email de recuperação enviado"))
-
-    .catch((error) => {
-
-      if (error.code === "auth/user-not-found") {
-
-        alert("Email não cadastrado");
-
-      } else if (error.code === "auth/invalid-email") {
-
-        alert("Email inválido");
-
-      } else {
-
-        alert("Erro: " + error.message);
-
-      }
-    });
+    const actionCodeSettings = {
+  url: 'https://megamindapp-4e60c.web.app/resetar-senha.html',
+  handleCodeInApp: false
 };
+
+await sendPasswordResetEmail(auth, email, actionCodeSettings);
+
+    alert("Se o email existir, o link de recuperação foi enviado.");
+
+  } catch (error) {
+
+    if (error.code === "auth/invalid-email") {
+
+      alert("Email inválido");
+
+    } else {
+
+      alert("Erro: " + error.message);
+
+    }
+  }
+};
+
 
 
 // HOME.HTML
