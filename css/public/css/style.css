@@ -46,8 +46,10 @@ body {
 
 .txtLogin {
     padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
     color: #6c07ab;
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .form {
@@ -68,10 +70,15 @@ body {
     padding: 0 20px;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.233) 8px 8px 15px;
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .txtl {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     color: black;
     align-self: flex-start;
 }
@@ -89,6 +96,9 @@ body {
     color: black;
     box-shadow: rgba(0, 0, 0, 0.233) 8px 8px 15px;
     cursor: pointer;
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .btnVoltar {
@@ -127,7 +137,9 @@ body {
 .RecSenha {
     text-decoration: none;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     text-align: center;
 }
 
@@ -136,8 +148,9 @@ body {
     justify-content: center;
     gap: 5px;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
 .cadlink {
     text-decoration: none;
