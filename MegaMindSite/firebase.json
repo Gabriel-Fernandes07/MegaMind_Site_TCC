@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "MegaMindSite/public",
     "ignore": [
       "firebase.json",
       "**/.*",
