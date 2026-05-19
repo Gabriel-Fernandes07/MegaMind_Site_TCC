@@ -154,49 +154,36 @@ await sendPasswordResetEmail(auth, email, actionCodeSettings);
 
 // HOME.HTML
 if (window.location.pathname.includes("home.html")) {
-
-  onAuthStateChanged(auth, async (user) => {
-
-    if (user) {
-
-      try {
-
-        const docRef = doc(db, "users", user.uid);
-
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-
-          const data = docSnap.data();
-
-          // BEM-VINDO
-          const nome = document.getElementById("bemvindo");
-
-          if (nome) {
-            nome.innerText = ` ${data.nome || ""} 👋`;
-          }
-
-          // NOME DO ESTUDANTE
-          const studentName = document.querySelector(".student-name");
-
-          if (studentName) {
-            studentName.innerText = data.nome || "Aluno";
-          }
-
-        }
-
-      } catch (e) {
-
-        console.error(e);
-
-      }
-
-    } else {
-
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    if (
+      window.location.pathname.includes("home.html") ||
+      window.location.pathname.includes("home")
+    ) {
       window.location.href = "index.html";
-
     }
+    return;
+  }
 
-  });
+  const bemVindo = document.getElementById("bemvindo");
 
+  if (!bemVindo) {
+    return;
+  }
+
+  try {
+    const docRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      bemVindo.textContent = data.nome || "Aluno";
+    } else {
+      bemVindo.textContent = user.email || "Aluno";
+    }
+  } catch (error) {
+    console.error(error);
+    bemVindo.textContent = "Aluno";
+  }
+});
 }
