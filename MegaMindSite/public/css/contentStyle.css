@@ -1,0 +1,444 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis visuais compartilhadas pelas páginas de conteúdo. */
+:root {
+    --bg-page: #f4f0ff;
+    --bg-shell: #ffffff;
+    --bg-sidebar: #fbf9ff;
+    --card-bg: #ffffff;
+    --text-main: #22304d;
+    --text-soft: #6f7c96;
+    --text-faint: #94a0b6;
+    --line-soft: #ebe7f7;
+    --primario: #6c07ab;
+    --primario-deep: #5a0591;
+    --primario-soft: #f0edff;
+    --shadow-shell: 0 24px 70px rgba(72, 97, 146, 0.14);
+    --shadow-card: 0 14px 35px rgba(90, 112, 160, 0.08);
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(158, 138, 247, 0.18), transparent 26%),
+        linear-gradient(180deg, #fbf9ff 0%, var(--bg-page) 100%);
+    color: var(--text-main);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+svg {
+    display: block;
+}
+
+/* Base de espaçamento da página. */
+.pagina-painel {
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.estrutura-painel {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--bg-shell);
+    border-radius: 24px;
+    box-shadow: var(--shadow-shell);
+    display: flex;
+    overflow: hidden;
+}
+
+.barra-lateral-painel {
+    width: 280px;
+    background: var(--bg-sidebar);
+    padding: 32px 24px;
+    border-right: 1px solid var(--line-soft);
+    display: flex;
+    flex-direction: column;
+}
+
+.navegacao-lateral {
+    margin-bottom: auto;
+}
+
+.link-lateral {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: var(--text-soft);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.link-lateral:hover {
+    background: var(--primario-soft);
+    color: var(--primario);
+}
+
+.link-lateral.ativo {
+    background: var(--primario);
+    color: white;
+}
+
+.icone-navegacao {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.caixa-download {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    margin-top: 24px;
+}
+
+.icone-download {
+    width: 32px;
+    height: 32px;
+    color: var(--primario);
+}
+
+.conteudo-painel {
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.barra-superior-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.barra-superior-botao {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.barra-superior-botao.primario {
+    background: var(--primario);
+    color: white;
+}
+
+.barra-superior-botao.primario:hover {
+    background: var(--primario-deep);
+}
+
+.barra-superior-botao:hover {
+    background: var(--line-soft);
+}
+
+.secao-conteudos {
+    flex: 1;
+}
+
+.cabecalho-secao {
+    margin-bottom: 24px;
+}
+
+.cabecalho-secao h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.grade-conteudos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.cartao-conteudo {
+    display: block;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.cartao-conteudo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(90, 112, 160, 0.12);
+}
+
+.icone-conteudo {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+    color: var(--primario);
+}
+
+.texto-cartao p {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.texto-cartao h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.texto-cartao span {
+    font-size: 14px;
+    color: var(--primario);
+    font-weight: 500;
+}
+
+.conteudo-texto {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 24px;
+}
+
+.conteudo-texto h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 16px;
+}
+
+.conteudo-texto p {
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.conteudo-texto ul {
+    margin-left: 20px;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+.conteudo-texto li {
+    margin-bottom: 8px;
+}
+
+/* Layout simples para páginas internas sem menu lateral. */
+.pagina-painel.layout-simples {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho com botão de voltar, título e atalho de perfil. */
+.cabecalho-simples {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: var(--bg-shell);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-card);
+}
+
+.botao-voltar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--primario-soft);
+    color: var(--primario);
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.botao-voltar:hover {
+    background: var(--primario);
+    color: white;
+}
+
+.botao-voltar svg {
+    width: 18px;
+    height: 18px;
+}
+
+.cabecalho-simples h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-main);
+    flex: 1;
+    text-align: center;
+}
+
+.botao-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--primario-soft);
+    color: var(--primario);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.botao-perfil:hover {
+    background: var(--primario);
+    color: white;
+}
+
+.botao-perfil svg {
+    width: 24px;
+    height: 24px;
+}
+
+.area-conteudo {
+    padding: 0 24px;
+}
+
+/* Grade dos tópicos de estudo. */
+.grade-topicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.cartao-topico {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cartao-topico:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(90, 112, 160, 0.15);
+}
+
+.icone-topico {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+}
+
+.conteudo-topico {
+    padding: 20px;
+}
+
+.conteudo-topico h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.conteudo-topico p {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 16px;
+}
+
+/* Barra que mostra o progresso de cada tópico. */
+.container-progresso {
+    height: 6px;
+    background: var(--line-soft);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.barra-progresso {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primario), var(--primario-deep));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.texto-progresso {
+    font-size: 12px;
+    color: var(--text-faint);
+    font-weight: 500;
+}
+
+/* Responsividade para telas médias e pequenas. */
+@media (max-width: 900px) {
+    .pagina-painel {
+        padding: 16px;
+    }
+
+    .cabecalho-simples {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .cabecalho-simples h1 {
+        text-align: left;
+        font-size: 24px;
+    }
+
+    .area-conteudo {
+        padding: 0;
+    }
+
+    .grade-topicos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .pagina-painel {
+        padding: 12px;
+    }
+
+    .cabecalho-simples {
+        padding: 16px;
+    }
+
+    .botao-voltar {
+        width: 100%;
+    }
+
+    .botao-perfil {
+        display: none;
+    }
+
+    .icone-topico {
+        height: 86px;
+        font-size: 36px;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="box1">
+
+        <img src="img/fundo.png" class="bg">
+
+    </div>
+
+    <div class="box2">
+
+        <div class="box">
+
+            <div class="organização">
+
+                <a class="voltar" href="index.html">
+
+                    <button type="submit" class="btnVoltar">
+                        <img class="imgVoltar" src="img/voltar.png" alt="">
+                    </button>
+
+                </a>
+
+                <h1 class="txtLogin">Recuperar Senha</h1>
+
+            </div>
+
+            <form class="form" onsubmit="return false;">
+
+                <label class="txtl">Digite o e-mail cadastrado</label>
+                <input type="email" id="email" class="txtbox" required>
+
+                <button onclick="recuperarSenha()" type="button" class="btnlogin">
+                    <span class="txtbtnLogin">Enviar código</span>
+                </button>
+
+            </form>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+    <script type="module" src="js/auth.js"></script>
+
+
+    
+</body>
+</html>

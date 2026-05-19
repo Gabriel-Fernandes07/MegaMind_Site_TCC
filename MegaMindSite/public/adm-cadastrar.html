@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Administrador - MegaMind</title>
+    <link rel="stylesheet" href="css/homeStyle.css">
+    <link rel="stylesheet" href="css/admStyle.css">
+</head>
+<body class="inicio">
+    <main class="pagina-painel">
+        <div class="estrutura-painel">
+            <!-- Menu lateral principal -->
+            <aside class="barra-lateral-painel" aria-label="Menu lateral administrativo">
+                <nav class="navegacao-lateral">
+                    <div class="admin-header">
+                        <h2>Painel Admin</h2>
+                    </div>
+                    
+                    <a class="link-lateral" href="adm-home.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 11.2 12 5l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Dashboard
+                    </a>
+                    
+                    <a class="link-lateral ativo" href="adm-cadastrar.html" aria-current="page">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Cadastrar Adms
+                    </a>
+                    
+                    <a class="link-lateral" href="adm-gerenciar-fale.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Gerenciar Fale Conosco
+                    </a>
+                    
+                    <a class="link-lateral" href="adm-gerenciar-dashboard.html">
+                        <span class="icone-navegacao">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 13h2v8H3zm4-8h2v16H7zm4-2h2v18h-2zm4 4h2v14h-2zm4-2h2v16h-2z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        Gerenciar Dashboard
+                    </a>
+                </nav>
+
+                <a class="btn-logout" href="index.html">
+                    <span class="icone-logout">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/>
+                        </svg>
+                    </span>
+                    Sair
+                </a>
+            </aside>
+
+            <!-- Conteúdo principal da página -->
+            <section class="conteudo-painel">
+
+                <section class="titulo-secao">
+                    <h1>Cadastrar Novo Administrador</h1>
+                    <p>Adicione um novo administrador ao sistema MegaMind</p>
+                </section>
+
+                <div class="container-form-adm">
+                    <form class="form-cadastro-adm" action="#" method="POST">
+                        
+                        <div class="grupo-form">
+                            <label for="nome-admin" class="label-form">Nome Completo</label>
+                            <input 
+                                type="text" 
+                                id="nome-admin" 
+                                name="nome" 
+                                class="input-form" 
+                                placeholder="Ex: João Silva"
+                                required
+                            >
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="email-admin" class="label-form">E-mail Corporativo</label>
+                            <input 
+                                type="email" 
+                                id="email-admin" 
+                                name="email" 
+                                class="input-form" 
+                                placeholder="Ex: joao@megamind.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="senha-admin" class="label-form">Senha Temporária</label>
+                            <div class="input-container">
+                                <input 
+                                    type="password" 
+                                    id="senha-admin" 
+                                    name="senha" 
+                                    class="input-form" 
+                                    placeholder="Mínimo 6 caracteres"
+                                    required
+                                >
+                                <button type="button" class="btnEye">
+                                    <img id="IconeSenhaAdmin" src="img/invisivel.png" class="Eye" alt="">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="confirmacao-admin" class="label-form">Confirmar Senha</label>
+                            <div class="input-container">
+                                <input 
+                                    type="password" 
+                                    id="confirmacao-admin" 
+                                    name="confirmacao" 
+                                    class="input-form" 
+                                    placeholder="Confirme a senha"
+                                    required
+                                >
+                                <button type="button" class="btnEye">
+                                    <img id="IconeConfirmacaoAdmin" src="img/invisivel.png" class="Eye" alt="">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="cargo-admin" class="label-form">Cargo/Permissão</label>
+                            <select id="cargo-admin" name="cargo" class="input-form" required>
+                                <option value="">Selecione um cargo</option>
+                                <option value="gerenciador">Gerenciador de Conteúdo</option>
+                                <option value="moderador">Moderador</option>
+                                <option value="suporte">Suporte Técnico</option>
+                                <option value="super-admin">Super Administrador</option>
+                            </select>
+                        </div>
+
+                        <div class="botoes-form">
+                            <button type="submit" class="btn-primario">
+                                <span>✓ Cadastrar Admin</span>
+                            </button>
+                            <a href="adm-home.html" class="btn-secundario">
+                                <span>Cancelar</span>
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Lista de admins existentes -->
+                <section class="lista-admins-section">
+                    <h2>Administradores Cadastrados</h2>
+                    <div class="tabela-container">
+                        <table class="tabela-admins" id="tabela-admins">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Cargo</th>
+                                    <th>Data Cadastro</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpo-tabela">
+                                <tr class="sem-dados">
+                                    <td colspan="5">Nenhum administrador cadastrado</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>

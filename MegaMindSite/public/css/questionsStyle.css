@@ -1,0 +1,295 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis visuais das páginas de questões. */
+:root {
+    --bg-page: #f4f0ff;
+    --bg-shell: #ffffff;
+    --card-bg: #ffffff;
+    --text-main: #22304d;
+    --text-soft: #6f7c96;
+    --text-faint: #94a0b6;
+    --line-soft: #ebe7f7;
+    --primario: #6c07ab;
+    --primario-deep: #5a0591;
+    --primario-soft: #f0edff;
+    --shadow-card: 0 14px 35px rgba(90, 112, 160, 0.08);
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(158, 138, 247, 0.18), transparent 26%),
+        linear-gradient(180deg, #fbf9ff 0%, var(--bg-page) 100%);
+    color: var(--text-main);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+svg {
+    display: block;
+}
+
+.pagina-painel {
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.pagina-painel.layout-simples {
+    width: min(100%, 1400px);
+    margin: 0 auto;
+}
+
+/* Cabeçalho padrão das páginas internas. */
+.cabecalho-simples {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    background: var(--bg-shell);
+    box-shadow: var(--shadow-card);
+}
+
+.cabecalho-simples h1 {
+    flex: 1;
+    color: var(--text-main);
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.botao-voltar,
+.botao-perfil {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    background: var(--primario-soft);
+    color: var(--primario);
+    font-weight: 700;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.botao-voltar {
+    padding: 0 16px;
+    border-radius: 999px;
+}
+
+.botao-perfil {
+    width: 44px;
+    border-radius: 12px;
+}
+
+.botao-voltar:hover,
+.botao-perfil:hover {
+    background: var(--primario);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.botao-voltar svg {
+    width: 18px;
+    height: 18px;
+}
+
+.botao-perfil svg {
+    width: 24px;
+    height: 24px;
+}
+
+.pagina-questoes {
+    padding: 0 24px 32px;
+}
+
+/* Área que agrupa os cartões de assuntos. */
+.painel-assuntos {
+    padding: 28px;
+    border-radius: 22px;
+    background: rgba(235, 248, 253, 0.78);
+    box-shadow: var(--shadow-card);
+}
+
+.painel-assuntos h2 {
+    margin-bottom: 24px;
+    color: var(--text-main);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.grade-assuntos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+/* Cartão clicável de cada assunto. */
+.cartao-assunto {
+    min-height: 132px;
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    border: 1px solid rgba(233, 238, 247, 0.84);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 26px rgba(90, 112, 160, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cartao-assunto:hover {
+    transform: translateY(-3px);
+    border-color: rgba(98, 82, 204, 0.22);
+    box-shadow: 0 18px 38px rgba(90, 112, 160, 0.14);
+}
+
+.icone-assunto {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    text-align: center;
+}
+
+.icone-assunto.vermelho { background: #6c07ab; }
+.icone-assunto.verde-azulado { background: #7e18c1; }
+.icone-assunto.verde { background: #6c07ab; font-size: 16px; }
+.icone-assunto.azul { background: #8a18c1; }
+.icone-assunto.amarelo { background: #5a0591; }
+.icone-assunto.rosa { background: #6c07ab; }
+.icone-assunto.roxo { background: #6c07ab; }
+.icone-assunto.laranja { background: #7e18c1; }
+
+.texto-assunto {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.texto-assunto strong {
+    color: #344768;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.texto-assunto small {
+    align-self: flex-start;
+    margin-top: 7px;
+    padding: 3px 10px;
+    border: 1px solid #d9e1ee;
+    border-radius: 999px;
+    color: var(--text-faint);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.texto-progresso-assunto {
+    margin-top: 14px;
+    color: var(--text-faint);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Indicador visual de progresso nas questões. */
+.trilha-progresso {
+    width: 100%;
+    height: 5px;
+    display: block;
+    overflow: hidden;
+    margin-top: 7px;
+    border-radius: 999px;
+    background: #e8edf6;
+}
+
+.trilha-progresso span {
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--primario), var(--primario-deep));
+}
+
+/* Ajustes para deixar a grade confortável no celular. */
+@media (max-width: 900px) {
+    .pagina-painel {
+        padding: 16px;
+    }
+
+    .cabecalho-simples {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cabecalho-simples h1 {
+        font-size: 24px;
+    }
+
+    .pagina-questoes {
+        padding: 0 0 28px;
+    }
+
+    .grade-assuntos {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 560px) {
+    .pagina-painel {
+        padding: 12px;
+    }
+
+    .cabecalho-simples,
+    .painel-assuntos {
+        padding: 18px;
+    }
+
+    .botao-voltar {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .botao-perfil {
+        display: none;
+    }
+
+    .cartao-assunto {
+        min-height: 116px;
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .icone-assunto {
+        width: 52px;
+        height: 52px;
+        font-size: 16px;
+    }
+
+    .texto-assunto strong {
+        font-size: 13px;
+    }
+}
