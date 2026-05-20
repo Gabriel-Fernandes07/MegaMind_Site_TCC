@@ -1,3 +1,4 @@
+// IMPORTAÇÕES DO FIREBASE
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 
 import {
@@ -15,16 +16,17 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+// CONFIGURAÇÃO DO FIREBASE
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
+  apiKey: "AIzaSyAXoLRatnIuZSEXYENjFGWgloV3-xaDf9Q",
   authDomain: "megamindapp-4e60c.firebaseapp.com",
   projectId: "megamindapp-4e60c",
-  storageBucket: "megamindapp-4e60c.appspot.com",
+  storageBucket: "megamindapp-4e60c.firebasestorage.app",
   messagingSenderId: "114881660257",
   appId: "1:114881660257:web:d0b6ae935486429bfb3120"
 };
 
-// Inicializa Firebase
+// INICIALIZAÇÃO
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -49,8 +51,8 @@ window.cadastrar = async function () {
       senha
     );
 
-    // Salva nome no Firestore
-    await setDoc(doc(db, "users", userCredential.user.uid), {
+    // Salva no Firestore
+    await setDoc(doc(db, "usuarios", userCredential.user.uid), {
       nome: nome,
       email: email
     });
@@ -58,6 +60,8 @@ window.cadastrar = async function () {
     alert("Cadastro realizado com sucesso!");
     window.location.href = "index.html";
   } catch (error) {
+    console.error("Erro no cadastro:", error);
+
     if (error.code === "auth/email-already-in-use") {
       alert("E-mail já cadastrado.");
     } else if (error.code === "auth/invalid-email") {
@@ -86,6 +90,8 @@ window.login = async function () {
     await signInWithEmailAndPassword(auth, email, senha);
     window.location.href = "home.html";
   } catch (error) {
+    console.error("Erro no login:", error);
+
     if (error.code === "auth/user-not-found") {
       alert("Usuário não encontrado.");
     } else if (error.code === "auth/wrong-password") {
@@ -120,6 +126,8 @@ window.recuperarSenha = async function () {
     alert("Se o e-mail existir, o link de recuperação foi enviado.");
     window.location.href = "index.html";
   } catch (error) {
+    console.error("Erro ao recuperar senha:", error);
+
     if (error.code === "auth/invalid-email") {
       alert("E-mail inválido.");
     } else {
@@ -128,39 +136,40 @@ window.recuperarSenha = async function () {
   }
 };
 
-//
-// HOME.HTML - EXIBIR NOME DO USUÁRIO
-//
-const paginaAtual = window.location.pathname;
 
-if (paginaAtual.includes("home")) {
+// HOME.HTML - MOSTRAR NOME DO USUÁRIO
+document.addEventListener("DOMContentLoaded", () => {
+  const bemVindo = document.getElementById("bemvindo");
+
+  // Se não existir o elemento, não estamos na home
+  if (!bemVindo) return;
+
   onAuthStateChanged(auth, async (user) => {
-    // Se não estiver logado, volta para login
     if (!user) {
       window.location.href = "index.html";
       return;
     }
 
-    const bemVindo = document.getElementById("bemvindo");
-
-    if (!bemVindo) return;
-
     try {
-      const docRef = doc(db, "users", user.uid);
+      console.log("UID do usuário:", user.uid);
+
+      const docRef = doc(db, "usuarios", user.uid);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
         const dados = docSnap.data();
+        console.log("Dados encontrados:", dados);
 
-        // Mostra o nome salvo no Firestore
-        bemVindo.textContent = dados.nome || "Aluno";
+        bemVindo.textContent = dados.nome;
       } else {
-        // Se não encontrar documento
+        console.log("Documento não encontrado no Firestore.");
+
+        // Exibe parte do e-mail como fallback
         bemVindo.textContent = user.email.split("@")[0];
       }
     } catch (error) {
-      console.error("Erro ao buscar dados do usuário:", error);
+      console.error("Erro ao buscar nome:", error);
       bemVindo.textContent = "Aluno";
     }
   });
-}
+});
