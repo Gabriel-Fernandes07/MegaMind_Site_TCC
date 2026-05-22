@@ -1,12 +1,14 @@
-// IMPORTAÇÕES DO FIREBASE
+// Importação do firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+
 
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
-  onAuthStateChanged
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 import {
@@ -16,7 +18,7 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// CONFIGURAÇÃO DO FIREBASE
+// Config. do firebase 
 const firebaseConfig = {
   apiKey: "AIzaSyAXoLRatnIuZSEXYENjFGWgloV3-xaDf9Q",
   authDomain: "megamindapp-4e60c.firebaseapp.com",
@@ -26,14 +28,12 @@ const firebaseConfig = {
   appId: "1:114881660257:web:d0b6ae935486429bfb3120"
 };
 
-// INICIALIZAÇÃO
+// Inicialização do firebase 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-//
-// CADASTRO
-//
+// Cadastro
 window.cadastrar = async function () {
   const nome = document.getElementById("nome").value.trim();
   const email = document.getElementById("email").value.trim();
@@ -74,9 +74,7 @@ window.cadastrar = async function () {
   }
 };
 
-//
-// LOGIN
-//
+// Login
 window.login = async function () {
   const email = document.getElementById("email").value.trim();
   const senha = document.getElementById("senha").value.trim();
@@ -104,9 +102,7 @@ window.login = async function () {
   }
 };
 
-//
-// RECUPERAR SENHA
-//
+// Recuperar senha
 window.recuperarSenha = async function () {
   const email = document.getElementById("email").value.trim();
 
@@ -137,7 +133,7 @@ window.recuperarSenha = async function () {
 };
 
 
-// HOME.HTML - MOSTRAR NOME DO USUÁRIO
+// Home 
 document.addEventListener("DOMContentLoaded", () => {
   const bemVindo = document.getElementById("bemvindo");
 
@@ -173,3 +169,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Sair da conta
+window.logout = async function () {
+  try {
+    await signOut(auth);
+
+    // impede voltar para página protegida pelo cache
+    window.location.replace("index.html");
+
+  } catch (error) {
+    console.error("Erro ao sair:", error);
+    alert("Erro ao sair da conta.");
+  }
+};
