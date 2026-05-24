@@ -702,3 +702,60 @@ svg {
 
 
 
+
+/* ═══════════════════════════════════════════════
+   MODO ESCURO — homeStyle.css
+═══════════════════════════════════════════════ */
+html.dark-mode body {
+    background: #0e0e1a !important;
+    color: #e8eaf6;
+}
+
+html.dark-mode .estrutura-painel {
+    background: rgba(20, 20, 35, 0.95) !important;
+    border-color: rgba(255,255,255,0.06) !important;
+}
+
+html.dark-mode .barra-lateral-painel {
+    background: linear-gradient(180deg, rgba(18,18,32,0.98), rgba(16,16,28,0.98)) !important;
+    border-color: rgba(255,255,255,0.06) !important;
+}
+
+html.dark-mode .link-lateral {
+    color: #c5cae9 !important;
+}
+
+html.dark-mode .link-lateral:hover,
+html.dark-mode .link-lateral.ativo {
+    background: rgba(124,58,237,0.2) !important;
+    color: #ce93d8 !important;
+}
+
+html.dark-mode .conteudo-painel {
+    background: rgba(18,18,32,0.98) !important;
+    border-color: rgba(255,255,255,0.06) !important;
+}
+
+html.dark-mode .cartao-conteudo {
+    background: rgba(28,28,48,0.98) !important;
+    border-color: rgba(255,255,255,0.08) !important;
+    color: #e8eaf6 !important;
+}
+
+html.dark-mode .cartao-conteudo:hover {
+    border-color: rgba(124,58,237,0.4) !important;
+}
+
+html.dark-mode .texto-cartao p { color: #9da3b4 !important; }
+html.dark-mode .texto-cartao h3 { color: #e8eaf6 !important; }
+html.dark-mode .texto-cartao span { color: #ce93d8 !important; }
+
+html.dark-mode .cabecalho-secao h2 { color: #c5cae9 !important; }
+
+html.dark-mode .banner-aplicativo {
+    background: linear-gradient(180deg, #1a1a2e, #16162a) !important;
+    border-color: rgba(255,255,255,0.07) !important;
+}
+
+html.dark-mode .texto-aplicativo h2 { color: #e8eaf6 !important; }
+html.dark-mode .texto-aplicativo p  { color: #9da3b4 !important; }
