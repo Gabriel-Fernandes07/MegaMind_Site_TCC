@@ -668,3 +668,55 @@ svg {
 
 
 
+
+/* ═══════════════════════════════════════════════
+   MODO ESCURO — profileStyle.css
+   (perfil.html)
+═══════════════════════════════════════════════ */
+html.dark-mode {
+    --profile-bg:   #0e0e1a;
+    --profile-text: #e8eaf6;
+    --profile-soft: #9da3b4;
+    --profile-card: rgba(26,26,48,0.98);
+    --profile-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+html.dark-mode body,
+html.dark-mode .aplicativo-perfil,
+html.dark-mode .profile-screen {
+    background: #0e0e1a !important;
+}
+
+html.dark-mode .linha-perfil,
+html.dark-mode .profile-row {
+    background: rgba(26,26,48,0.98) !important;
+    color: #e8eaf6 !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+html.dark-mode .informacoes-configuracao strong,
+html.dark-mode .settings-info strong { color: #e8eaf6 !important; }
+
+html.dark-mode .informacoes-configuracao span,
+html.dark-mode .settings-info span   { color: #9da3b4 !important; }
+
+html.dark-mode .valor-linha,
+html.dark-mode .row-value,
+html.dark-mode .link-seta,
+html.dark-mode .arrow-link { color: #9575cd !important; }
+
+html.dark-mode .grupo-configuracoes h2,
+html.dark-mode .settings-group h2    { color: #ce93d8 !important; }
+
+html.dark-mode .conteudo-perfil,
+html.dark-mode .profile-content      { background: #0e0e1a !important; }
+
+html.dark-mode .nota-versao,
+html.dark-mode .version-note         { color: #3a3a5a !important; }
+
+html.dark-mode .botao-alternancia:not(.ativo) {
+    background: #2a2a44 !important;
+}
+html.dark-mode .botao-alternancia::after {
+    background: #c5cae9 !important;
+}

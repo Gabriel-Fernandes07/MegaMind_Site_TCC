@@ -4,174 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - Megamind</title>
-    <link rel="stylesheet" href="css/profileStyle.css">
+    <link rel="stylesheet" href="css/perfilPage.css">
+    <link rel="stylesheet" href="css/perfil.css">
 </head>
-<body class="profile-page">
-    <main class="profile-screen">
-        <section class="profile-app">
-            <header class="profile-hero">
-                <div class="profile-title">
-                    <h1>Perfil</h1>
-                    <p>Gerencie sua conta e preferências</p>
-                </div>
+<body>
+    <!-- Sidebar Drawer -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <nav class="sidebar-drawer" id="sidebar-drawer" aria-label="Menu lateral">
+        <button class="sidebar-close" id="sidebar-close" aria-label="Fechar menu">&#x2715;</button>
+        <div class="sidebar-logo">MegaMind</div>
+        <ul class="sidebar-links">
+            <li><a href="home.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m3 11 9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z"/></svg>
+                Início</a></li>
+            <li><a href="SobreNos.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0" stroke-linecap="round"/></svg>
+                Sobre nós</a></li>
+            <li><a href="duvidasFrequentes.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M10.6 9.1A2.1 2.1 0 0 1 12.5 8c1.5 0 2.6.9 2.6 2.3 0 1.8-2.2 2.1-2.2 3.8m-.1 2.8h.1" stroke-linecap="round"/></svg>
+                Dúvidas Frequentes</a></li>
+            <li><a href="avalieNos.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                Avalie-nos</a></li>
+            <li><a href="desempenho.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 18V9m7 9V6m7 12v-4"/><path d="M3.5 18.5h17"/></svg>
+                Desempenho</a></li>
+            <li><a href="contMat.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 11h4M8 15h6" stroke-linecap="round"/></svg>
+                Conteúdo — Matemática</a></li>
+            <li><a href="contPort.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke-linecap="round"/></svg>
+                Conteúdo — Português</a></li>
+            <li><a href="questaoMat.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a3 3 0 1 1 5.1 2.1c-1.4 1-2.3 1.7-2.3 3.2M12 18h.01" stroke-linecap="round"/></svg>
+                Questões — Matemática</a></li>
+            <li><a href="questaoPort.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4" stroke-linecap="round"/></svg>
+                Questões — Português</a></li>
+            <li><a href="praticaRedacao.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m14 40 20-20 8 8-20 20-10 2Z"/><path d="m30 14 6-6 8 8-6 6"/></svg>
+                Prática — Redação</a></li>
+            <li class="sidebar-divider"></li>
+            <li><a href="perfil.html" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0" stroke-linecap="round"/></svg>
+                Perfil</a></li>
+        </ul>
+    </nav>
 
-                <img class="profile-logo" src="img/megamindlogo.png" alt="Logo do Megamind">
-
-                <div class="student-card">
-                    <div class="student-avatar" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="4" fill="currentColor"/>
-                            <path d="M4.5 21a7.5 7.5 0 0 1 15 0" fill="currentColor"/>
+    <div class="perfil-wrapper">
+        <header class="perfil-hero">
+            <div class="perfil-hero-topo">
+                <div>
+                    <button class="perfil-menu-btn" id="perfil-menu-btn" aria-label="Abrir menu">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
-                    </div>
-
-                    <div class="student-info">
-                        <strong>Nome do estudante</strong>
-                        <span>@estudante</span>
-
-                        <div class="student-stats">
-                            <span>⭐ 0 pts</span>
-                            <span>🔥 0 dias</span>
-                        </div>
-                    </div>
-
-                    <button class="edit-profile-btn" type="button">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                        </svg>
-                        Editar perfil
                     </button>
-                </div>
-            </header>
-
-            <section class="profile-content">
-                <div class="settings-group">
-                    <h2>Configurações</h2>
-
-                    <div class="profile-row">
-                        <div class="row-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M21 14.8A8.4 8.4 0 1 1 9.2 3 7 7 0 0 0 21 14.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="settings-info">
-                            <strong>Modo escuro</strong>
-                            <span>Ative o tema escuro do app</span>
-                        </div>
-                        <div class="toggle-pill"></div>
-                    </div>
-
-                    <div class="profile-row">
-                        <div class="row-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="m15 9 4-4M19 5h-4M19 5v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="settings-info">
-                            <strong>Meta diária</strong>
-                            <span>Defina sua meta de estudos</span>
-                        </div>
-                        <span class="row-value">30 questões</span>
-                        <span class="arrow-link">›</span>
-                    </div>
-
-                    <div class="profile-row">
-                        <div class="row-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                                <path d="M10 21h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="settings-info">
-                            <strong>Notificações</strong>
-                            <span>Gerencie lembretes e avisos</span>
-                        </div>
-                        <div class="toggle-pill active"></div>
+                    <div class="perfil-hero-titulo">
+                        <h1>Perfil</h1>
+                        <p>Gerencie sua conta e preferências</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="settings-group">
-                    <h2>Outros</h2>
+            <img class="perfil-logo" src="img/logo.png" alt="Logo Megamind">
 
-                    <a class="profile-row" href="SobreNós.html">
-                        <div class="row-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="M12 11v6M12 7h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="settings-info">
-                            <strong>Sobre nós</strong>
-                            <span>Conheça nossa missão</span>
-                        </div>
-                        <span class="arrow-link">›</span>
-                    </a>
-
-                    <a class="profile-row" href="duvidasFrequentes.html">
-                        <div class="row-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M9.2 9a3 3 0 1 1 5.1 2.1c-1.4 1-2.3 1.7-2.3 3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M12 18h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M21 12a9 9 0 0 1-13.6 7.7L3 21l1.3-4.4A9 9 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="settings-info">
-                            <strong>Ajuda e suporte</strong>
-                            <span>Tire suas dúvidas</span>
-                        </div>
-                        <span class="arrow-link">›</span>
-                    </a>
-
-                    <a class="profile-row danger" href="index.html">
-                        <div class="row-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="m10 17 5-5-5-5M15 12H3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="settings-info">
-                            <strong>Sair da conta</strong>
-                            <span>Fazer logout do aplicativo</span>
-                        </div>
-                        <span class="arrow-link">›</span>
-                    </a>
-                </div>
-
-                <div class="version-note">Versão 1.0.0</div>
-            </section>
-
-            <nav class="profile-bottom-nav" aria-label="Menu principal">
-                <a href="index.html" aria-label="Início">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="m3 11 9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <a href="desempenho.html" aria-label="Desempenho">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M5 20V10M12 20V4M19 20v-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
-                </a>
-                <a href="contPort.html" aria-label="Pesquisar">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <path d="m16.5 16.5 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </a>
-                <a class="active" href="perfil.html" aria-label="Perfil">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
+            <div class="student-card">
+                <div class="avatar-perfil-wrap" id="avatar-perfil-trigger" title="Trocar foto de perfil">
+                    <img id="avatar-img" src="img/logo.png" alt="Foto de perfil"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <svg class="avatar-fallback" viewBox="0 0 24 24" style="display:none">
                         <circle cx="12" cy="8" r="4" fill="currentColor"/>
                         <path d="M4.5 21a7.5 7.5 0 0 1 15 0" fill="currentColor"/>
                     </svg>
+                    <div class="avatar-perfil-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                        <span>Foto</span>
+                    </div>
+                    <input type="file" id="perfil-file-input" accept="image/*">
+                </div>
+
+                <div class="student-info">
+                    <strong class="js-student-name">Nome do estudante</strong>
+                    <span class="handle js-student-handle">@estudante</span>
+                    <div class="student-stats">
+                        <span>⭐ 0 pts</span>
+                        <span>🔥 0 dias</span>
+                    </div>
+                </div>
+
+                <button class="edit-profile-btn" id="edit-profile-btn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"/>
+                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/>
+                    </svg>
+                    Editar perfil
+                </button>
+            </div>
+        </header>
+
+        <section class="perfil-content">
+            <div class="settings-group">
+                <h2>Configurações</h2>
+
+                <div class="profile-row" id="row-dark" style="cursor:pointer">
+                    <div class="row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 14.8A8.4 8.4 0 1 1 9.2 3 7 7 0 0 0 21 14.8Z"/></svg>
+                    </div>
+                    <div class="settings-info">
+                        <strong>Modo escuro</strong>
+                        <span>Ative o tema escuro do app</span>
+                    </div>
+                    <div class="toggle-pill toggle-dark"></div>
+                </div>
+
+                <div class="profile-row" id="btn-metas" style="cursor:pointer">
+                    <div class="row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m15 9 4-4M19 5h-4M19 5v4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="settings-info">
+                        <strong>Meta diária</strong>
+                        <span>Defina sua meta de estudos</span>
+                    </div>
+                    <span class="row-value js-meta-valor">30 questões</span>
+                    <span class="arrow-link">›</span>
+                </div>
+
+                <div class="profile-row">
+                    <div class="row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="settings-info">
+                        <strong>Notificações</strong>
+                        <span>Gerencie lembretes e avisos</span>
+                    </div>
+                    <div class="toggle-pill active"></div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h2>Outros</h2>
+
+                <a class="profile-row" href="SobreNos.html">
+                    <div class="row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="settings-info"><strong>Sobre nós</strong><span>Conheça Nossa missão</span></div>
+                    <span class="arrow-link">›</span>
                 </a>
-            </nav>
+
+                <a class="profile-row" href="duvidasFrequentes.html">
+                    <div class="row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.2 9a3 3 0 1 1 5.1 2.1c-1.4 1-2.3 1.7-2.3 3.2"/><path d="M12 18h.01"/><path d="M21 12a9 9 0 0 1-13.6 7.7L3 21l1.3-4.4A9 9 0 1 1 21 12Z" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="settings-info"><strong>Ajuda e suporte</strong><span>Tire suas dúvidas</span></div>
+                    <span class="arrow-link">›</span>
+                </a>
+
+                <a class="profile-row danger" href="index.html">
+                    <div class="row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5M15 12H3" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="settings-info"><strong>Sair da conta</strong><span>Fazer logout do aplicativo</span></div>
+                    <span class="arrow-link">›</span>
+                </a>
+            </div>
+
+            <div class="version-note">Versão 1.0.0</div>
         </section>
-    </main>
+    </div>
+
+    <div id="mm-toast" role="status" aria-live="polite"></div>
+
+    <script src="js/perfil.js"></script>
+    <script src="js/drawer.js"></script>
+    <script src="js/avatarUpload.js"></script>
 </body>
 </html>
-
-
-
-

@@ -1,0 +1,450 @@
+/* ═══════════════════════════════════════════════
+   perfilPage.css — Layout exclusivo da perfil.html
+═══════════════════════════════════════════════ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    background: #f0eefa;
+    min-height: 100vh;
+}
+
+/* ── Wrapper geral ── */
+.perfil-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ══════════════════════════════════════
+   HERO — ocupa toda a largura do topo
+══════════════════════════════════════ */
+.perfil-hero {
+    width: 100%;
+    background: linear-gradient(135deg, #8a18c1 0%, #5a0591 100%);
+    padding: 32px clamp(20px, 5vw, 60px) 36px;
+    border-radius: 0 0 32px 32px;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+}
+
+.perfil-hero-topo {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.perfil-menu-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.18);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+.perfil-menu-btn svg { width: 22px; height: 22px; }
+
+.perfil-hero-titulo {
+    margin-top: 16px;
+}
+.perfil-hero-titulo h1 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+.perfil-hero-titulo p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.78);
+    margin-top: 4px;
+}
+
+.perfil-logo {
+    position: absolute;
+    top: 20px;
+    right: clamp(20px, 5vw, 60px);
+    width: 110px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));
+}
+
+/* ══════════════════════════════════════
+   CARTÃO DO ESTUDANTE
+══════════════════════════════════════ */
+.student-card {
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 20px 24px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 760px;
+}
+
+/* ── Avatar clicável ── */
+.avatar-perfil-wrap {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.avatar-perfil-wrap img#avatar-img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2.5px solid rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.28);
+}
+
+.avatar-fallback {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.85);
+    padding: 12px;
+    border: 2.5px solid rgba(255,255,255,0.45);
+    box-sizing: border-box;
+}
+
+.avatar-perfil-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.48);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity .2s;
+    pointer-events: none;
+}
+.avatar-perfil-wrap:hover .avatar-perfil-overlay { opacity: 1; }
+.avatar-perfil-overlay svg  { width: 18px; height: 18px; color: #fff; }
+.avatar-perfil-overlay span { font-size: 9px; color: #fff; font-weight: 700; }
+#perfil-file-input { display: none; }
+
+/* ── Info do estudante ── */
+.student-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+.student-info strong {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.student-info .handle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+}
+.student-stats {
+    display: flex;
+    gap: 16px;
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+}
+
+/* ── Botão editar perfil ── */
+.edit-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(70,50,170,0.72);
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+.edit-profile-btn:hover { background: rgba(70,50,170,0.95); }
+.edit-profile-btn svg { width: 16px; height: 16px; }
+
+/* ══════════════════════════════════════
+   CONTEÚDO (configurações)
+══════════════════════════════════════ */
+.perfil-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px clamp(20px, 5vw, 60px) 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+    align-content: start;
+}
+
+.settings-group { margin-bottom: 24px; }
+
+.settings-group h2 {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: #6c07ab;
+    margin-bottom: 14px;
+}
+
+/* ── Linha de configuração ── */
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(90,112,160,0.08);
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+    transition: box-shadow .2s;
+}
+.profile-row:last-child { margin-bottom: 0; }
+a.profile-row { cursor: pointer; }
+a.profile-row:hover { box-shadow: 0 6px 22px rgba(108,7,171,0.13); }
+
+.row-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    background: #f0edff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #6c07ab;
+}
+.row-icon svg { width: 22px; height: 22px; }
+
+.settings-info { flex: 1; min-width: 0; }
+.settings-info strong { display: block; font-size: 15px; font-weight: 700; color: #22304d; }
+.settings-info span   { display: block; font-size: 12px; color: #8892a4; margin-top: 2px; }
+
+.row-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #6c07ab;
+    white-space: nowrap;
+}
+.arrow-link {
+    font-size: 22px;
+    color: #aab0c0;
+    line-height: 1;
+}
+
+/* ── Toggle pill ── */
+.toggle-pill {
+    width: 52px;
+    height: 28px;
+    border-radius: 999px;
+    background: #d1d9e6;
+    position: relative;
+    flex-shrink: 0;
+    transition: background .25s;
+    cursor: pointer;
+}
+.toggle-pill::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    top: 4px;
+    left: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    transition: left .25s;
+}
+.toggle-pill.active::after,
+.toggle-pill.ativo::after  { left: 28px; }
+.toggle-pill.active,
+.toggle-pill.ativo         { background: #6c07ab; }
+
+/* ── Danger ── */
+.profile-row.danger .settings-info strong { color: #c0334d; }
+.profile-row.danger .row-icon { background: #fff0f3; color: #c0334d; }
+
+/* ── Versão ── */
+.version-note {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #b0b8c8;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+
+
+/* ══════════════════════════════════════
+   MODO ESCURO
+══════════════════════════════════════ */
+html.dark-mode body { background: #0e0e1a !important; }
+
+html.dark-mode .profile-row {
+    background: #1a1a2e !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35) !important;
+}
+html.dark-mode .settings-info strong { color: #e8eaf6 !important; }
+html.dark-mode .settings-info span   { color: #6b7280 !important; }
+html.dark-mode .settings-group h2    { color: #ce93d8 !important; }
+html.dark-mode .row-icon             { background: #2a1a44 !important; }
+html.dark-mode .version-note         { color: #3a3a5a !important; }
+html.dark-mode .arrow-link           { color: #4a5270 !important; }
+html.dark-mode .row-value            { color: #ce93d8 !important; }
+html.dark-mode .toggle-pill:not(.active):not(.ativo) { background: #2a2a44 !important; }
+
+/* ══════════════════════════════════════
+   RESPONSIVO
+══════════════════════════════════════ */
+@media (max-width: 640px) {
+    .perfil-content {
+        grid-template-columns: 1fr;
+        padding-inline: 16px;
+    }
+    .perfil-logo { width: 80px; height: 88px; }
+    .perfil-hero-titulo h1 { font-size: 28px; }
+    .student-card {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+    .edit-profile-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 4px;
+    }
+}
+
+/* ══════════════════════════════════════
+   SIDEBAR DRAWER
+══════════════════════════════════════ */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+    z-index: 200;
+}
+.sidebar-overlay.open { display: block; }
+
+.sidebar-drawer {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(300px, 82vw);
+    background: #fff;
+    z-index: 201;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px 32px;
+    transform: translateX(-100%);
+    transition: transform .28s cubic-bezier(.4,0,.2,1);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+    overflow-y: auto;
+}
+.sidebar-drawer.open { transform: translateX(0); }
+
+html.dark-mode .sidebar-drawer {
+    background: #1a1a2e;
+}
+
+.sidebar-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background .15s;
+    margin-bottom: 8px;
+}
+.sidebar-close:hover { background: #f0f0f5; color: #333; }
+html.dark-mode .sidebar-close:hover { background: #2a2a44; color: #e8eaf6; }
+
+.sidebar-logo {
+    font-size: 22px;
+    font-weight: 900;
+    color: #6c07ab;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+}
+
+.sidebar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    color: #44506a;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+}
+.sidebar-links a:hover {
+    background: #f0edff;
+    color: #6c07ab;
+}
+.sidebar-links a.active {
+    background: linear-gradient(135deg, rgba(108,7,171,0.12), rgba(108,7,171,0.07));
+    color: #6c07ab;
+}
+
+.sidebar-links svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: currentColor;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background: #ebe7f7;
+    margin: 8px 0;
+}
+
+html.dark-mode .sidebar-links a       { color: #c5cae9; }
+html.dark-mode .sidebar-links a:hover { background: rgba(124,58,237,0.18); color: #ce93d8; }
+html.dark-mode .sidebar-links a.active{ background: rgba(124,58,237,0.2); color: #ce93d8; }
+html.dark-mode .sidebar-divider        { background: rgba(255,255,255,0.07); }
+html.dark-mode .sidebar-logo           { color: #ce93d8; }

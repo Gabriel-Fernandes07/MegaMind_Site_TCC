@@ -301,3 +301,77 @@ textarea {
 
 
 
+
+/* ═══════════════════════════════════════════════
+   MODO ESCURO — otherStyle.css
+   (SobreNós, avalieNos, desempenho, dúvidas, praticaRedacao)
+═══════════════════════════════════════════════ */
+html.dark-mode body {
+    background: #0e0e1a !important;
+    color: #e8eaf6;
+}
+
+html.dark-mode .cabecalho-simples {
+    background: #1a1a2e !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+html.dark-mode .cabecalho-simples h1 { color: #e8eaf6 !important; }
+
+html.dark-mode .botao-voltar {
+    background: rgba(124,58,237,0.2) !important;
+    color: #ce93d8 !important;
+}
+html.dark-mode .botao-voltar:hover {
+    background: #7c3aed !important;
+    color: #fff !important;
+}
+
+html.dark-mode .area-conteudo > div,
+html.dark-mode .cartao-informacao,
+html.dark-mode .conteudo-texto,
+html.dark-mode .painel-formulario {
+    background: #1a1a2e !important;
+    border-color: rgba(255,255,255,0.07) !important;
+    color: #e8eaf6 !important;
+}
+
+html.dark-mode .area-conteudo h3,
+html.dark-mode .area-conteudo h4 { color: #ce93d8 !important; }
+
+html.dark-mode .area-conteudo p,
+html.dark-mode .area-conteudo li  { color: #9da3b4 !important; }
+
+html.dark-mode .area-conteudo input,
+html.dark-mode .area-conteudo select,
+html.dark-mode .area-conteudo textarea {
+    background: #12122a !important;
+    border-color: rgba(255,255,255,0.12) !important;
+    color: #e8eaf6 !important;
+}
+
+/* Cards de desempenho (mantêm gradiente, só ajuste de sombra) */
+html.dark-mode [style*="linear-gradient(135deg, #667eea"],
+html.dark-mode [style*="linear-gradient(135deg, #f093fb"],
+html.dark-mode [style*="linear-gradient(135deg, #4facfe"],
+html.dark-mode [style*="linear-gradient(135deg, #43e97b"] {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5) !important;
+}
+
+html.dark-mode [style*="background: #fbf9ff"],
+html.dark-mode [style*="background: white"],
+html.dark-mode [style*="background: #fff"] {
+    background: #1a1a2e !important;
+}
+
+html.dark-mode [style*="color: #333"],
+html.dark-mode [style*="color: #555"],
+html.dark-mode [style*="color: #666"] {
+    color: #c5cae9 !important;
+}
+
+html.dark-mode [style*="color: #999"] { color: #6b7280 !important; }
+
+html.dark-mode [style*="border-left: 4px solid"] {
+    background: #12122a !important;
+}
