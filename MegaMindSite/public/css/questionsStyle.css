@@ -293,3 +293,50 @@ svg {
         font-size: 13px;
     }
 }
+/* ═══════════════════════════════════════════════
+   MODO ESCURO — questionsStyle.css
+   (questaoMat, questaoPort, questoesRedacao)
+═══════════════════════════════════════════════ */
+html.dark-mode body {
+    background: #0e0e1a !important;
+    color: #e8eaf6;
+}
+
+html.dark-mode .cabecalho-simples {
+    background: #1a1a2e !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+html.dark-mode .cabecalho-simples h1 { color: #e8eaf6 !important; }
+
+html.dark-mode .botao-voltar {
+    background: rgba(124,58,237,0.2) !important;
+    color: #ce93d8 !important;
+}
+html.dark-mode .botao-voltar:hover {
+    background: #7c3aed !important;
+    color: #fff !important;
+}
+
+html.dark-mode .painel-assuntos {
+    background: rgba(20,20,40,0.95) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+html.dark-mode .painel-assuntos h2 { color: #e8eaf6 !important; }
+
+html.dark-mode .cartao-assunto {
+    background: rgba(26,26,48,0.98) !important;
+    border-color: rgba(255,255,255,0.07) !important;
+}
+html.dark-mode .cartao-assunto:hover {
+    border-color: rgba(124,58,237,0.4) !important;
+}
+
+html.dark-mode .texto-assunto strong { color: #e8eaf6 !important; }
+html.dark-mode .texto-assunto small  { color: #6b7280 !important; border-color: rgba(255,255,255,0.1) !important; }
+html.dark-mode .texto-progresso-assunto { color: #6b7280 !important; }
+
+html.dark-mode .trilha-progresso {
+    background: rgba(255,255,255,0.1) !important;
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MegaMind</title>
     <link rel="stylesheet" href="css/homeStyle.css">
+    <link rel="stylesheet" href="css/perfil.css">
 </head>
 <body class="inicio">
     <main class="pagina-painel">
@@ -84,12 +85,12 @@
 
                 <!-- Banner de boas-vindas -->
                 <section class="banner-boas-vindas" aria-label="Boas-vindas">
+                    <!-- Avatar — somente exibição (trocar foto em perfil.html) -->
                     <div class="avatar-banner">
-                        <img src="img/logo.png" alt="Logo do Megamind">
+                        <img id="avatar-img" class="mm-avatar-img" src="img/logo.png" alt="Foto de perfil">
                     </div>
                     <div class="texto-banner">
-                        <h1>Bem-vindo(a), <span id="bemvindo"></span>
-                        <span id="saudacao" aria-hidden="true"></span>!
+                        <h1>Bem-vindo(a), <span id="bemvindo" class="js-student-name">estudante</span>!
                         </h1>
                         <div class="estatisticas-banner">
                             <span><strong>&#11088;</strong> 0 pts</span>
@@ -235,6 +236,8 @@
 
 
     </main>
+    <div id="mm-toast" role="status" aria-live="polite"></div>
+    <script src="js/perfil.js"></script>
 </body>
 </html>
 

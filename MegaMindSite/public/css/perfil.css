@@ -1,0 +1,299 @@
+/* ═══════════════════════════════════════════════
+   perfil.css — MegaMind
+   Avatar, Toast, Modais, Modo Escuro (global)
+═══════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────
+   AVATAR — home.html / index.html (banner)
+─────────────────────────────────────────────── */
+.banner-avatar {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.banner-avatar img#avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,.5);
+  display: block;
+  transition: filter .2s;
+}
+
+.avatar-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  opacity: 0;
+  transition: opacity .2s;
+  pointer-events: none;
+}
+.banner-avatar:hover .avatar-overlay { opacity: 1; }
+.avatar-overlay svg  { width: 22px; height: 22px; color: #fff; }
+.avatar-overlay span { font-size: 10px; color: #fff; font-weight: 600; text-align: center; line-height: 1.2; }
+#avatar-input { display: none; }
+
+/* ───────────────────────────────────────────────
+   AVATAR — perfil.html (student-card)
+─────────────────────────────────────────────── */
+.student-avatar,
+.avatar-estudante {
+  overflow: hidden;
+}
+
+.mm-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* ───────────────────────────────────────────────
+   TOAST GLOBAL
+─────────────────────────────────────────────── */
+#mm-toast {
+  position: fixed;
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1e1e2e;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s, transform .3s;
+  z-index: 99999;
+  white-space: nowrap;
+}
+#mm-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ───────────────────────────────────────────────
+   MODAIS — base compartilhada
+─────────────────────────────────────────────── */
+#mm-modal-perfil,
+#mm-modal-metas {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+}
+#mm-modal-perfil.open,
+#mm-modal-metas.open { display: flex; }
+
+.mm-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(4px);
+}
+
+.mm-box {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px 28px;
+  width: min(460px, 92vw);
+  box-shadow: 0 24px 60px rgba(0,0,0,.22);
+  animation: mmIn .25s cubic-bezier(.34,1.56,.64,1) both;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+html.dark-mode .mm-box {
+  background: #1e1e32;
+  color: #e8eaf6;
+}
+
+@keyframes mmIn {
+  from { opacity: 0; transform: scale(.92) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
+.mm-box h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 6px;
+  text-align: center;
+}
+html.dark-mode .mm-box h2 { color: #e8eaf6; }
+
+.mm-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background .15s, color .15s;
+}
+.mm-close:hover { background: #f0f0f0; color: #333; }
+html.dark-mode .mm-close:hover { background: #2a2a44; color: #e8eaf6; }
+
+/* ── Avatar no modal ── */
+.mm-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 24px;
+}
+
+.mm-avatar-circle {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  border: 3px solid #e5e5f0;
+  transition: border-color .2s;
+}
+.mm-avatar-circle:hover { border-color: #7c3aed; }
+.mm-avatar-circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.mm-avatar-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.48);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.mm-avatar-circle:hover .mm-avatar-overlay { opacity: 1; }
+.mm-avatar-overlay svg  { width: 22px; height: 22px; color: #fff; }
+.mm-avatar-overlay span { font-size: 11px; color: #fff; font-weight: 600; }
+#mm-file-input { display: none; }
+
+/* ── Campos do modal ── */
+.mm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.mm-field label { font-size: 13px; font-weight: 600; color: #555; }
+html.dark-mode .mm-field label { color: #9da3b4; }
+
+.mm-field input {
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+.mm-field input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,.12); }
+html.dark-mode .mm-field input { background: #2a2a44; color: #e8eaf6; border-color: #3a3a5a; }
+
+.mm-handle-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.mm-handle-wrap:focus-within { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,.12); }
+.mm-at { padding: 10px 10px 10px 14px; font-size: 15px; font-weight: 700; color: #7c3aed; background: #f5f0ff; user-select: none; }
+html.dark-mode .mm-at { background: #2a1a44; }
+.mm-handle-wrap input { border: none !important; box-shadow: none !important; border-radius: 0 !important; padding-left: 6px !important; }
+
+/* ── Botões de ação ── */
+.mm-actions { display: flex; gap: 12px; margin-top: 8px; }
+.mm-btn-cancel,
+.mm-btn-save {
+  flex: 1; padding: 12px; border-radius: 12px;
+  font-size: 15px; font-weight: 600; cursor: pointer; border: none;
+  transition: opacity .15s, transform .1s; font-family: inherit;
+}
+.mm-btn-cancel:hover, .mm-btn-save:hover   { opacity: .88; }
+.mm-btn-cancel:active, .mm-btn-save:active { transform: scale(.97); }
+.mm-btn-cancel { background: #f0f0f5; color: #555; }
+.mm-btn-save   { background: #7c3aed; color: #fff; }
+html.dark-mode .mm-btn-cancel { background: #2a2a44; color: #c5cae9; }
+
+/* ── Modal de Metas ── */
+.mm-box-metas { width: min(560px, 94vw); }
+
+.mm-metas-sub { text-align: center; color: #666; font-size: 14px; margin-bottom: 28px; }
+html.dark-mode .mm-metas-sub { color: #9da3b4; }
+
+.mm-metas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+@media (max-width: 480px) { .mm-metas-grid { grid-template-columns: 1fr; } }
+
+.mm-meta-card {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 20px 12px; border-radius: 16px;
+  background: #f7f5ff; border: 1.5px solid #e8e0ff;
+}
+html.dark-mode .mm-meta-card { background: #1a1a30; border-color: #3a2a5a; }
+
+.mm-meta-icon { font-size: 28px; }
+
+.mm-meta-card label { font-size: 13px; font-weight: 700; color: #5a4a8a; text-align: center; }
+html.dark-mode .mm-meta-card label { color: #b39ddb; }
+
+.mm-meta-input-wrap { display: flex; align-items: center; gap: 6px; }
+
+.mm-meta-dec,
+.mm-meta-inc {
+  width: 30px; height: 30px; border: none; border-radius: 8px;
+  background: #7c3aed; color: #fff; font-size: 18px; line-height: 1;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: opacity .15s; font-family: inherit;
+}
+.mm-meta-dec:hover, .mm-meta-inc:hover { opacity: .82; }
+
+.mm-meta-input-wrap input {
+  width: 64px; text-align: center; border: 1.5px solid #ddd; border-radius: 8px;
+  padding: 6px 4px; font-size: 16px; font-weight: 700; font-family: inherit;
+  color: #1a1a2e; background: #fff; outline: none;
+}
+.mm-meta-input-wrap input:focus { border-color: #7c3aed; box-shadow: 0 0 0 2px rgba(124,58,237,.15); }
+html.dark-mode .mm-meta-input-wrap input { background: #2a2a44; color: #e8eaf6; border-color: #3a3a5a; }
+
+.mm-meta-label { font-size: 11px; color: #888; font-weight: 600; text-align: center; }
+html.dark-mode .mm-meta-label { color: #555; }
+
+/* ── Toggle modo escuro ── */
+.toggle-pill,
+.botao-alternancia { cursor: pointer; transition: background .25s; }
+.toggle-dark { cursor: pointer; }
