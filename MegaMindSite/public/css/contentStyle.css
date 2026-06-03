@@ -442,3 +442,40 @@ svg {
         font-size: 36px;
     }
 }
+/* ═══════════════════════════════════════════════
+   MODO ESCURO — contentStyle.css
+   (contMat, contPort, redacao)
+═══════════════════════════════════════════════ */
+html.dark-mode body {
+    background: #0e0e1a !important;
+    color: #e8eaf6;
+}
+
+html.dark-mode .cabecalho-simples {
+    background: #1a1a2e !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+html.dark-mode .cabecalho-simples h1 { color: #e8eaf6 !important; }
+
+html.dark-mode .botao-voltar {
+    background: rgba(124,58,237,0.2) !important;
+    color: #ce93d8 !important;
+}
+html.dark-mode .botao-voltar:hover {
+    background: #7c3aed !important;
+    color: #fff !important;
+}
+
+html.dark-mode .cartao-topico {
+    background: #1a1a2e !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+html.dark-mode .conteudo-topico h3 { color: #e8eaf6 !important; }
+html.dark-mode .conteudo-topico p  { color: #9da3b4 !important; }
+html.dark-mode .texto-progresso     { color: #6b7280 !important; }
+
+html.dark-mode .container-progresso {
+    background: rgba(255,255,255,0.1) !important;
+}
