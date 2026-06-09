@@ -80,30 +80,42 @@
                         <button class="tab-button" type="button" data-target="aba-conteudo" aria-selected="false">
                             📚 Conteúdo
                         </button>
-                        <button class="tab-button" type="button" data-target="aba-estatisticas" aria-selected="false">
-                            📊 Estatísticas
-                        </button>
-                        <button class="tab-button" type="button" data-target="aba-sistema" aria-selected="false">
-                            ⚙️ Sistema
+                        <button class="tab-button" type="button" data-target="aba-questoes" aria-selected="false">
+                            ❓ Questões
                         </button>
                     </div>
 
                     <!-- Aba Usuários -->
                     <div id="aba-usuarios" class="tab-content ativo">
-                        <h2>Gerenciar Usuários</h2>
-                        <div class="filtros-section">
-                            <input 
-                                type="text" 
-                                class="input-filtro" 
-                                placeholder="Buscar usuário..."
-                            >
-                            <select class="input-filtro">
-                                <option value="">Todos</option>
-                                <option value="ativo">Ativos</option>
-                                <option value="inativo">Inativos</option>
-                                <option value="suspenso">Suspensos</option>
-                            </select>
+                        <div class="aba-topo">
+                            <h2>Gerenciar Usuários</h2>
+                            <button id="btn-recarregar-usuarios" class="btn-secundario" type="button">Atualizar lista</button>
                         </div>
+
+                        <div id="form-usuario" class="formulario-admin" style="display:none; margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #d8d8d8; border-radius: 8px; background:#fff;">
+                            <input type="hidden" id="usuario-id" value="">
+                            <div class="grupo-form">
+                                <label for="usuario-nome">Nome</label>
+                                <input id="usuario-nome" class="input-form" type="text" placeholder="Nome do usuário">
+                            </div>
+                            <div class="grupo-form">
+                                <label for="usuario-email">E-mail</label>
+                                <input id="usuario-email" class="input-form" type="email" placeholder="E-mail do usuário" readonly>
+                            </div>
+                            <div class="grupo-form">
+                                <label for="usuario-status">Status</label>
+                                <select id="usuario-status" class="input-form">
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                    <option value="suspenso">Suspenso</option>
+                                </select>
+                            </div>
+                            <div class="botoes-form">
+                                <button id="btn-salvar-usuario" class="btn-primario" type="button">Salvar usuário</button>
+                                <button id="btn-cancelar-usuario" class="btn-neutro" type="button">Cancelar</button>
+                            </div>
+                        </div>
+
                         <div class="tabela-container">
                             <table class="tabela-dados">
                                 <thead>
@@ -126,21 +138,43 @@
 
                     <!-- Aba Conteúdo -->
                     <div id="aba-conteudo" class="tab-content">
-                        <h2>Gerenciar Conteúdo</h2>
-                        <div class="filtros-section">
-                            <select class="input-filtro">
-                                <option value="">Todos os tipos</option>
-                                <option value="redacao">Redação</option>
-                                <option value="matematica">Matemática</option>
-                                <option value="portugues">Português</option>
-                            </select>
-                            <select class="input-filtro">
-                                <option value="">Todos os status</option>
-                                <option value="ativo">Ativo</option>
-                                <option value="inativo">Inativo</option>
-                                <option value="revisao">Revisão</option>
-                            </select>
+                        <div class="aba-topo">
+                            <h2>Gerenciar Conteúdo</h2>
+                            <button id="btn-novo-conteudo" class="btn-primario" type="button">Adicionar conteúdo</button>
                         </div>
+
+                        <div id="form-conteudo" class="formulario-admin" style="display:none; margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #d8d8d8; border-radius: 8px; background:#fff;">
+                            <input type="hidden" id="conteudo-id" value="">
+                            <div class="grupo-form">
+                                <label for="titulo-conteudo">Título</label>
+                                <input id="titulo-conteudo" class="input-form" type="text" placeholder="Título do conteúdo">
+                            </div>
+                            <div class="grupo-form">
+                                <label for="tipo-conteudo">Tipo</label>
+                                <select id="tipo-conteudo" class="input-form">
+                                    <option value="matematica">Matemática</option>
+                                    <option value="portugues">Português</option>
+                                    <option value="redacao">Redação</option>
+                                </select>
+                            </div>
+                            <div class="grupo-form">
+                                <label for="status-conteudo">Status</label>
+                                <select id="status-conteudo" class="input-form">
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                    <option value="revisao">Revisão</option>
+                                </select>
+                            </div>
+                            <div class="grupo-form">
+                                <label for="descricao-conteudo">Descrição</label>
+                                <textarea id="descricao-conteudo" class="textarea-form" rows="4" placeholder="Descreva o conteúdo..."></textarea>
+                            </div>
+                            <div class="botoes-form">
+                                <button id="btn-salvar-conteudo" class="btn-primario" type="button">Salvar conteúdo</button>
+                                <button id="btn-cancelar-conteudo" class="btn-neutro" type="button">Cancelar</button>
+                            </div>
+                        </div>
+
                         <div class="tabela-container">
                             <table class="tabela-dados">
                                 <thead>
@@ -161,71 +195,136 @@
                         </div>
                     </div>
 
-                    <!-- Aba Estatísticas -->
-                    <div id="aba-estatisticas" class="tab-content">
-                        <h2>Estatísticas do Sistema</h2>
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <h3>Total de Usuários</h3>
-                                <p class="stat-numero" id="stat-total-usuarios">0</p>
-                                <p class="stat-label">Usuários cadastrados</p>
+                    <!-- Aba Questões -->
+                    <div id="aba-questoes" class="tab-content">
+                        <div class="aba-topo">
+                            <h2>Gerenciar Questões</h2>
+                            <div class="acoes-questoes" style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+                                <label for="select-assunto" style="margin-right:0.5rem;">Assunto:</label>
+                                <select id="select-assunto" class="input-filtro">
+                                    <option value="questoes_matematica">Matemática</option>
+                                    <option value="questoes_portugues">Português</option>
+                                    <option value="questoes_redacao">Redação</option>
+                                </select>
+                                <button id="btn-novo-conjunto" class="btn-primario" type="button">Novo conjunto</button>
+                                <button id="btn-add-questao-item" class="btn-secundario" type="button">Adicionar questão</button>
                             </div>
-                            <div class="stat-card">
-                                <h3>Usuários Ativos (30 dias)</h3>
-                                <p class="stat-numero" id="stat-usuarios-ativos">0</p>
-                                <p class="stat-label">Últimos 30 dias</p>
+                        </div>
+
+                        <div id="form-conjunto-questoes" class="formulario-admin" style="display:none; margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #d8d8d8; border-radius: 8px; background:#fff;">
+                            <input type="hidden" id="questoes-set-id" value="">
+                            <div class="grupo-form">
+                                <label for="titulo-set">Título do conjunto</label>
+                                <input id="titulo-set" class="input-form" type="text" placeholder="Título do conjunto de questões">
                             </div>
-                            <div class="stat-card">
-                                <h3>Total de Questões</h3>
-                                <p class="stat-numero" id="stat-total-questoes">0</p>
-                                <p class="stat-label">Questões no sistema</p>
+                            <div class="grupo-form">
+                                <label for="status-set">Status</label>
+                                <select id="status-set" class="input-form">
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                    <option value="revisao">Revisão</option>
+                                </select>
                             </div>
-                            <div class="stat-card">
-                                <h3>Taxa de Conclusão</h3>
-                                <p class="stat-numero" id="stat-taxa-conclusao">0%</p>
-                                <p class="stat-label">Média geral</p>
+                            <div class="botoes-form">
+                                <button id="btn-salvar-conjunto" class="btn-primario" type="button">Salvar conjunto</button>
+                                <button id="btn-cancelar-conjunto" class="btn-neutro" type="button">Cancelar</button>
+                            </div>
+                        </div>
+
+                        <div class="tabela-container">
+                            <table class="tabela-dados">
+                                <thead>
+                                    <tr>
+                                        <th>ID do conjunto</th>
+                                        <th>Título</th>
+                                        <th>Questões</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corpo-questoes">
+                                    <tr class="sem-dados">
+                                        <td colspan="5">Nenhum conjunto de questões encontrado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="form-questao-item" class="formulario-admin" style="display:none; margin-top: 1.5rem; padding: 1rem; border: 1px solid #d8d8d8; border-radius: 8px; background:#fff;">
+                            <input type="hidden" id="questao-set-id" value="">
+                            <input type="hidden" id="questao-item-index" value="">
+                            <div class="grupo-form">
+                                <label for="select-set-questao-documento">Conjunto de questões</label>
+                                <select id="select-set-questao-documento" class="input-form"></select>
+                            </div>
+                            <div class="grupo-form">
+                                <label for="enunciado-questao">Enunciado</label>
+                                <textarea id="enunciado-questao" class="textarea-form" rows="3" placeholder="Enunciado da questão"></textarea>
+                            </div>
+                            <div class="grupo-form">
+                                <label for="alternativa-a">Alternativa A</label>
+                                <input id="alternativa-a" class="input-form" type="text" placeholder="Alternativa A">
+                            </div>
+                            <div class="grupo-form">
+                                <label for="alternativa-b">Alternativa B</label>
+                                <input id="alternativa-b" class="input-form" type="text" placeholder="Alternativa B">
+                            </div>
+                            <div class="grupo-form">
+                                <label for="alternativa-c">Alternativa C</label>
+                                <input id="alternativa-c" class="input-form" type="text" placeholder="Alternativa C">
+                            </div>
+                            <div class="grupo-form">
+                                <label for="alternativa-d">Alternativa D</label>
+                                <input id="alternativa-d" class="input-form" type="text" placeholder="Alternativa D">
+                            </div>
+                            <div class="grupo-form">
+                                <label for="alternativa-e">Alternativa E</label>
+                                <input id="alternativa-e" class="input-form" type="text" placeholder="Alternativa E">
+                            </div>
+                            <div class="grupo-form">
+                                <label for="resposta-correta">Resposta correta</label>
+                                <select id="resposta-correta" class="input-form">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                </select>
+                            </div>
+                            <div class="botoes-form">
+                                <button id="btn-salvar-questao-item" class="btn-primario" type="button">Salvar questão</button>
+                                <button id="btn-cancelar-questao-item" class="btn-neutro" type="button">Cancelar</button>
+                            </div>
+                        </div>
+
+                        <div id="detalhe-questoes-set" class="formulario-admin" style="display:none; margin-top: 1.5rem; padding: 1rem; border: 1px solid #d8d8d8; border-radius: 8px; background:#fff;">
+                            <h3>Questões do conjunto selecionado</h3>
+                            <p id="texto-conjunto-questoes" style="margin-bottom: 1rem; color: #444;"></p>
+                            <div class="tabela-container">
+                                <table class="tabela-dados">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Enunciado</th>
+                                            <th>Resposta</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="corpo-questao-detalhe">
+                                        <tr class="sem-dados">
+                                            <td colspan="4">Selecione um conjunto para ver as questões</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Aba Sistema -->
-                    <div id="aba-sistema" class="tab-content">
-                        <h2>Configurações do Sistema</h2>
-                        <div class="sistema-container">
-                            <div class="config-grupo">
-                                <h3>Backup e Restauração</h3>
-                                <p>Faça backup do banco de dados do sistema</p>
-                                <button class="btn-primario" type="button">💾 Fazer Backup</button>
-                            </div>
-                            <div class="config-grupo">
-                                <h3>Limpeza de Dados</h3>
-                                <p>Limpe dados antigos e temporários</p>
-                                <button class="btn-neutro" type="button">🗑 Limpar Dados</button>
-                            </div>
-                            <div class="config-grupo">
-                                <h3>Logs do Sistema</h3>
-                                <p>Visualize os logs de atividade</p>
-                                <button class="btn-neutro" type="button">📜 Ver Logs</button>
-                            </div>
-                            <div class="config-grupo">
-                                <h3>Enviar Notificação Global</h3>
-                                <textarea 
-                                    id="notificacao-global" 
-                                    class="textarea-form" 
-                                    placeholder="Escreva uma mensagem para todos os usuários..."
-                                    rows="4"
-                                ></textarea>
-                                <button class="btn-primario" type="button">📢 Enviar</button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </section>
 
         </div>
     </main>
-    <script src="js/admin.js" defer></script>
+    <script type="module" src="js/admin.js"></script>
 </body>
 </html>
