@@ -1,0 +1,316 @@
+/* ── Estilos específicos da página de suporte ── */
+
+.suporte-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.suporte-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.suporte-field label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main, #22304d);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.suporte-field label svg {
+    width: 18px;
+    height: 18px;
+    color: #6c07ab;
+    flex-shrink: 0;
+}
+
+/* Select de assunto */
+
+.suporte-select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #e0d9f5;
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text-main, #22304d);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c07ab' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.suporte-select:focus {
+    border-color: #6c07ab;
+    box-shadow: 0 0 0 3px rgba(108, 7, 171, .1);
+}
+
+/* Textarea */
+
+.suporte-textarea {
+    width: 100%;
+    min-height: 160px;
+    padding: 13px 16px;
+    border: 1.5px solid #e0d9f5;
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text-main, #22304d);
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    line-height: 1.6;
+
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.suporte-textarea:focus {
+    border-color: #6c07ab;
+    box-shadow: 0 0 0 3px rgba(108, 7, 171, .1);
+}
+
+.suporte-textarea::placeholder {
+    color: #aab0c0;
+}
+
+.char-count {
+    font-size: 12px;
+    color: #aab0c0;
+    text-align: right;
+    margin-top: -4px;
+}
+
+/* Botão */
+
+.btn-suporte-enviar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #6c07ab, #5a0591);
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: opacity .2s,
+                transform .1s,
+                box-shadow .2s;
+
+    box-shadow: 0 8px 24px rgba(108, 7, 171, .25);
+}
+
+.btn-suporte-enviar:hover {
+    opacity: .9;
+    box-shadow: 0 12px 28px rgba(108, 7, 171, .32);
+}
+
+.btn-suporte-enviar:active {
+    transform: scale(.98);
+}
+
+.btn-suporte-enviar:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.btn-suporte-enviar svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Assuntos rápidos */
+
+.assuntos-rapidos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.assunto-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    border: 1.5px solid #e0d9f5;
+    border-radius: 12px;
+
+    background: #fff;
+
+    cursor: pointer;
+
+    transition: border-color .2s,
+                background .2s,
+                color .2s;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--text-soft, #68738f);
+
+    text-align: left;
+}
+
+.assunto-chip:hover,
+.assunto-chip.selecionado {
+    border-color: #6c07ab;
+    background: #f0edff;
+    color: #6c07ab;
+}
+
+.assunto-chip svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Status */
+
+.suporte-status {
+    display: none;
+    align-items: center;
+    gap: 12px;
+
+    padding: 16px 20px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.suporte-status.sucesso {
+    display: flex;
+    background: #e8f8f0;
+    color: #1a7a4a;
+    border: 1.5px solid #a3e6c3;
+}
+
+.suporte-status.erro {
+    display: flex;
+    background: #fef0f0;
+    color: #b91c1c;
+    border: 1.5px solid #fca5a5;
+}
+
+.suporte-status svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* Card */
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    padding: 18px 20px;
+
+    border-radius: 14px;
+
+    background: #f7f5ff;
+    border: 1.5px solid #e0d9f5;
+}
+
+.info-card svg {
+    width: 22px;
+    height: 22px;
+    color: #6c07ab;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-card p {
+    font-size: 13px;
+    color: var(--text-soft, #68738f);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.info-card strong {
+    display: block;
+    font-size: 14px;
+    color: var(--text-main, #22304d);
+    margin-bottom: 4px;
+}
+
+/* Dark Mode */
+
+html.dark-mode .suporte-select,
+html.dark-mode .suporte-textarea {
+    background: #1a1a2e !important;
+    border-color: rgba(255,255,255,.12) !important;
+    color: #e8eaf6 !important;
+}
+
+html.dark-mode .assunto-chip {
+    background: #1a1a2e !important;
+    border-color: rgba(255,255,255,.1) !important;
+    color: #9da3b4 !important;
+}
+
+html.dark-mode .assunto-chip:hover,
+html.dark-mode .assunto-chip.selecionado {
+    background: rgba(108,7,171,.2) !important;
+    border-color: #6c07ab !important;
+    color: #ce93d8 !important;
+}
+
+html.dark-mode .info-card {
+    background: #1a1a2e !important;
+    border-color: rgba(255,255,255,.08) !important;
+}
+
+html.dark-mode .suporte-field label {
+    color: #e8eaf6 !important;
+}
+
+html.dark-mode .char-count {
+    color: #4a5270 !important;
+}
+/* Email do usuário logado */
+.email-usuario-box {
+    background: #f0edff;
+    border-color: #c4b5fd;
+}
+
+html.dark-mode .email-usuario-box {
+    background: rgba(108,7,171,.15) !important;
+    border-color: rgba(124,58,237,.4) !important;
+}
+
+html.dark-mode .email-usuario-box strong {
+    color: #e8eaf6 !important;
+}
+
+html.dark-mode .email-usuario-box p {
+    color: #9da3b4 !important;
+}

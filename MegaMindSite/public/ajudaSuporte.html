@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda e Suporte - Megamind</title>
+    <link rel="stylesheet" href="css/otherStyle.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/suporte.css">
+   
+</head>
+<body>
+    <main class="pagina-painel layout-simples">
+
+        <header class="cabecalho-simples">
+            <a class="botao-voltar" href="perfil.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Voltar
+            </a>
+            <h1>Ajuda e Suporte</h1>
+        </header>
+
+        <section class="area-conteudo" style="max-width: 720px;">
+
+            <!-- Info -->
+            <div class="info-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 11v6M12 7h.01" stroke-linecap="round"/>
+                </svg>
+                <div>
+                    <strong>Como funciona?</strong>
+                    <p>Selecione o assunto do seu problema, descreva os detalhes e clique em Enviar. Nossa equipe receberá o seu chamado por e-mail e retornará em até 48 horas.</p>
+                </div>
+            </div>
+
+            <!-- Assuntos rápidos -->
+            <div style="padding: 24px; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(90,112,160,.08);">
+                <h3 style="font-size:16px; font-weight:800; color:#22304d; margin-bottom:16px;">
+                    Selecione um assunto
+                </h3>
+
+                <div class="assuntos-rapidos" id="assuntos-rapidos">
+                    <button class="assunto-chip" data-assunto="Problema com login ou senha">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Problema com login ou senha
+                    </button>
+                    <button class="assunto-chip" data-assunto="Erro nas questões ou conteúdo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+                        Erro nas questões ou conteúdo
+                    </button>
+                    <button class="assunto-chip" data-assunto="Problema com foto de perfil">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0"/></svg>
+                        Problema com foto de perfil
+                    </button>
+                    <button class="assunto-chip" data-assunto="Bug ou comportamento inesperado">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4M8 6a4 4 0 0 1 4-4M20 12H4M4 12a8 8 0 0 0 16 0M9 21l3-9 3 9"/></svg>
+                        Bug ou comportamento inesperado
+                    </button>
+                    <button class="assunto-chip" data-assunto="Desempenho lento ou travamentos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+                        Desempenho lento ou travamentos
+                    </button>
+                    <button class="assunto-chip" data-assunto="Sugestão de melhoria">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        Sugestão de melhoria
+                    </button>
+                    <button class="assunto-chip" data-assunto="Problema com modo escuro">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 14.8A8.4 8.4 0 1 1 9.2 3 7 7 0 0 0 21 14.8Z"/></svg>
+                        Problema com modo escuro
+                    </button>
+                    <button class="assunto-chip" data-assunto="Outro assunto">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                        Outro assunto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Formulário -->
+            <div style="padding: 24px; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(90,112,160,.08);">
+                <h3 style="font-size:16px; font-weight:800; color:#22304d; margin-bottom:20px;">
+                    Descreva seu problema
+                </h3>
+
+                <form class="suporte-form" id="suporte-form" onsubmit="return false;">
+
+                    <div class="suporte-field">
+                        <label for="suporte-assunto">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            Assunto
+                        </label>
+                        <select class="suporte-select" id="suporte-assunto" required>
+                            <option value="" disabled selected>Selecione um assunto</option>
+                            <option>Problema com login ou senha</option>
+                            <option>Erro nas questões ou conteúdo</option>
+                            <option>Problema com foto de perfil</option>
+                            <option>Bug ou comportamento inesperado</option>
+                            <option>Desempenho lento ou travamentos</option>
+                            <option>Sugestão de melhoria</option>
+                            <option>Problema com modo escuro</option>
+                            <option>Outro assunto</option>
+                        </select>
+                    </div>
+
+                    <div class="suporte-field">
+                        <label for="suporte-detalhes">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Detalhes do problema
+                        </label>
+                        <textarea
+                            class="suporte-textarea"
+                            id="suporte-detalhes"
+                            maxlength="1000"
+                            placeholder="Descreva com o máximo de detalhes possível o que aconteceu, quando aconteceu e como reproduzir o problema..."
+                            required
+                        ></textarea>
+                        <span class="char-count"><span id="char-atual">0</span>/1000 caracteres</span>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="suporte-status" id="suporte-status">
+                        <svg id="status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+                        <span id="status-msg"></span>
+                    </div>
+
+                    <button class="btn-suporte-enviar" type="button" id="btn-enviar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/>
+                        </svg>
+                        <span id="btn-texto">Enviar para o suporte</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Email do usuário logado -->
+            <div class="email-usuario-box info-card" style="display:none; background:#f0edff; border-color:#c4b5fd;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#6c07ab" stroke-width="2" stroke-linecap="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <path d="m22 6-10 7L2 6"/>
+                </svg>
+                <div>
+                    <strong style="color:#22304d;">Seu e-mail será incluído no chamado</strong>
+                    <p>A mensagem será enviada com seu e-mail <strong id="email-usuario-display" style="color:#6c07ab;"></strong> para que nossa equipe possa te responder.</p>
+                </div>
+            </div>
+
+            <!-- Contato direto -->
+            <div class="info-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <path d="m22 6-10 7L2 6"/>
+                </svg>
+                <div>
+                    <strong>Contato direto</strong>
+                    <p>Você também pode nos contatar diretamente pelo e-mail <strong style="color:#6c07ab">lucasblins19@gmail.com</strong> para dúvidas urgentes.</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="mm-toast" role="status" aria-live="polite"></div>
+    <script src="js/perfil.js"></script>
+    <script type="module" src="js/suporte.js"></script>
+</body>
+</html>
